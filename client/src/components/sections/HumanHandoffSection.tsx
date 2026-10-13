@@ -24,7 +24,7 @@ export const HumanHandoffSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F6FBF7]/70 border-y border-[#E2EDE5]/80 relative">
+    <section className="py-20 lg:py-28 bg-[#F6FBF7]/70 dark:bg-[#0D1812]/80 border-y border-[#E2EDE5]/80 dark:border-[#1C3827]/80 relative transition-colors duration-500">
       <Container>
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -32,11 +32,11 @@ export const HumanHandoffSection: React.FC = () => {
             {SITE_CONTENT.handoff.badge}
           </Badge>
 
-          <h2 className="display-section font-extrabold text-[#0B1F14]">
+          <h2 className="display-section font-extrabold text-[#0B1F14] dark:text-[#F0FDF4] transition-colors duration-500">
             {SITE_CONTENT.handoff.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#3F5247] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#3F5247] dark:text-[#A1B8AA] leading-relaxed transition-colors duration-500">
             {SITE_CONTENT.handoff.subheadline}
           </p>
         </div>

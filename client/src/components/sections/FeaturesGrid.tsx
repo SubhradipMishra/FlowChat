@@ -16,7 +16,7 @@ import { SITE_CONTENT } from '../../data/content';
 
 export const FeaturesGrid: React.FC = () => {
   return (
-    <section id="features" className="py-20 lg:py-28 bg-white relative">
+    <section id="features" className="py-20 lg:py-28 bg-white dark:bg-[#080F0A] relative transition-colors duration-500">
       <Container>
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -24,11 +24,11 @@ export const FeaturesGrid: React.FC = () => {
             {SITE_CONTENT.features.badge}
           </Badge>
 
-          <h2 className="display-section font-extrabold text-[#0B1F14]">
+          <h2 className="display-section font-extrabold text-[#0B1F14] dark:text-[#F0FDF4] transition-colors duration-500">
             {SITE_CONTENT.features.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#3F5247] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#3F5247] dark:text-[#A1B8AA] leading-relaxed transition-colors duration-500">
             {SITE_CONTENT.features.subheadline}
           </p>
         </div>

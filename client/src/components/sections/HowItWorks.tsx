@@ -171,11 +171,11 @@ export const HowItWorks: React.FC = () => {
   const strokeDashoffset = circlePerimeter - (circlePerimeter * (activeStep / 5));
 
   return (
-    <section id="how-it-works" className="py-20 lg:py-28 bg-[#F6FBF7]/80 border-y border-[#E2EDE5]/70 relative overflow-hidden">
+    <section id="how-it-works" className="py-20 lg:py-28 bg-[#F6FBF7]/80 dark:bg-[#0D1812]/80 border-y border-[#E2EDE5]/70 dark:border-[#1C3827]/70 relative overflow-hidden transition-colors duration-500">
       {/* Background ambient lighting */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#DCFCE7]/35 via-[#BBF7D0]/25 to-[#DCFCE7]/35 rounded-full blur-3xl pointer-events-none -z-0" 
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#DCFCE7]/35 via-[#BBF7D0]/25 to-[#DCFCE7]/35 dark:from-[#16A34A]/10 dark:via-[#0E2818]/20 dark:to-[#16A34A]/10 rounded-full blur-3xl pointer-events-none -z-0 transition-colors duration-500" 
       />
 
       <Container>
@@ -185,11 +185,11 @@ export const HowItWorks: React.FC = () => {
             {SITE_CONTENT.howItWorks.badge}
           </Badge>
 
-          <h2 className="display-section font-extrabold text-[#0B1F14]">
+          <h2 className="display-section font-extrabold text-[#0B1F14] dark:text-[#F0FDF4] transition-colors duration-500">
             {SITE_CONTENT.howItWorks.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#3F5247] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#3F5247] dark:text-[#A1B8AA] leading-relaxed transition-colors duration-500">
             {SITE_CONTENT.howItWorks.subheadline}
           </p>
         </div>

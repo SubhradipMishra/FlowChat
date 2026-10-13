@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
 import { SocialProof } from './components/sections/SocialProof';
@@ -31,12 +32,13 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#3F5247] selection:bg-[#DCFCE7] selection:text-[#0B1F14]">
-      {/* 1. Sticky Navigation Bar */}
-      <Navbar
-        onOpenTrialModal={() => handleOpenTrialWithPlan()}
-        onOpenLoginModal={() => setIsLoginModalOpen(true)}
-      />
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-white dark:bg-[#080F0A] text-[#3F5247] dark:text-[#A1B8AA] selection:bg-[#DCFCE7] dark:selection:bg-[#143522] selection:text-[#0B1F14] dark:selection:text-[#4ADE80] transition-colors duration-500">
+        {/* 1. Sticky Navigation Bar */}
+        <Navbar
+          onOpenTrialModal={() => handleOpenTrialWithPlan()}
+          onOpenLoginModal={() => setIsLoginModalOpen(true)}
+        />
 
       <main className="flex-1">
         {/* 2. Hero Section */}
@@ -107,6 +109,7 @@ export function App() {
         onSwitchToTrial={() => handleOpenTrialWithPlan()}
       />
     </div>
+    </ThemeProvider>
   );
 }
 

@@ -48,10 +48,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       </div>
 
       <div className="flex items-baseline tracking-tight font-extrabold">
-        <span className={`${textSizes[size]} ${theme === 'dark' ? 'text-white' : 'text-[#0B1F14]'}`}>
+        <span className={`${textSizes[size]} transition-colors duration-500 ${theme === 'dark' ? 'text-white' : 'text-[#0B1F14] dark:text-white'}`}>
           FlowChat
         </span>
-        <span className={`${textSizes[size]} text-[#16A34A] ml-1`}>AI</span>
+        <span className={`${textSizes[size]} text-[#16A34A] dark:text-[#4ADE80] transition-colors duration-500 ml-1`}>AI</span>
       </div>
     </a>
   );

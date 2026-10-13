@@ -58,18 +58,18 @@ export const Modal: React.FC<ModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 12 }}
             transition={{ duration: 0.2 }}
-            className={`relative w-full ${maxWidthStyles[maxWidth]} bg-white rounded-3xl shadow-2xl border border-[#E2EDE5] overflow-hidden z-10 my-8`}
+            className={`relative w-full ${maxWidthStyles[maxWidth]} bg-white dark:bg-[#0E1A12] rounded-3xl shadow-2xl border border-[#E2EDE5] dark:border-[#1C3827] overflow-hidden z-10 my-8 transition-colors duration-300`}
             role="dialog"
             aria-modal="true"
           >
             {title && (
-              <div className="flex items-center justify-between px-6 py-4.5 border-b border-[#E2EDE5]">
-                <h3 className="text-lg font-bold text-[#0B1F14]">{title}</h3>
+              <div className="flex items-center justify-between px-6 py-4.5 border-b border-[#E2EDE5] dark:border-[#1C3827]">
+                <h3 className="text-lg font-bold text-[#0B1F14] dark:text-[#F0FDF4]">{title}</h3>
                 <button
                   type="button"
                   onClick={onClose}
                   aria-label="Close dialog"
-                  className="p-1.5 text-[#6B7F73] hover:text-[#0B1F14] hover:bg-[#F6FBF7] rounded-full transition-colors"
+                  className="p-1.5 text-[#6B7F73] dark:text-[#9FB5A6] hover:text-[#0B1F14] dark:hover:text-white hover:bg-[#F6FBF7] dark:hover:bg-[#122218] rounded-full transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -80,12 +80,12 @@ export const Modal: React.FC<ModalProps> = ({
                 type="button"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="absolute top-4 right-4 p-2 text-[#6B7F73] hover:text-[#0B1F14] hover:bg-[#F6FBF7] rounded-full transition-colors z-20"
+                className="absolute top-4 right-4 p-2 text-[#6B7F73] dark:text-[#9FB5A6] hover:text-[#0B1F14] dark:hover:text-white hover:bg-[#F6FBF7] dark:hover:bg-[#122218] rounded-full transition-colors z-20"
               >
                 <X className="w-5 h-5" />
               </button>
             )}
-            <div className="p-6 sm:p-8">{children}</div>
+            <div className="p-6 sm:p-8 text-[#3F5247] dark:text-[#A1B8AA]">{children}</div>
           </motion.div>
         </div>
       )}

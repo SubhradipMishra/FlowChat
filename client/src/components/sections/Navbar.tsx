@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { BrandLogo } from '../ui/BrandLogo';
 import { Button } from '../ui/Button';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import { SITE_CONTENT } from '../../data/content';
 
 export interface NavbarProps {
@@ -44,9 +45,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-xs border-b border-[#E2EDE5]/80 py-3'
+          ? 'bg-white/90 dark:bg-[#080F0A]/90 backdrop-blur-md shadow-xs border-b border-[#E2EDE5]/80 dark:border-[#1C3827]/80 py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -55,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <BrandLogo />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-3 bg-white/70 backdrop-blur-xs px-4 py-1.5 rounded-full border border-[#E2EDE5]/60 shadow-xs">
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-3 bg-white/70 dark:bg-[#0E1A12]/80 backdrop-blur-xs px-4 py-1.5 rounded-full border border-[#E2EDE5]/60 dark:border-[#1C3827]/60 shadow-xs transition-colors duration-500">
           {SITE_CONTENT.nav.links.map((link) => {
             const sectionTarget = link.href.replace('#', '');
             const isActive = activeSection === sectionTarget;
@@ -64,10 +65,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               <a
                 key={link.label}
                 href={link.href}
-                className={`text-xs lg:text-sm font-semibold px-3 py-1.5 rounded-full transition-all duration-150 ${
+                className={`text-xs lg:text-sm font-semibold px-3 py-1.5 rounded-full transition-all duration-300 ${
                   isActive
-                    ? 'text-[#16A34A] bg-[#DCFCE7]/70'
-                    : 'text-[#3F5247] hover:text-[#0B1F14] hover:bg-[#F6FBF7]'
+                    ? 'text-[#16A34A] dark:text-[#4ADE80] bg-[#DCFCE7]/70 dark:bg-[#143522]'
+                    : 'text-[#3F5247] dark:text-[#9FB5A6] hover:text-[#0B1F14] dark:hover:text-white hover:bg-[#F6FBF7] dark:hover:bg-[#122218]'
                 }`}
               >
                 {link.label}
@@ -76,13 +77,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Right CTA Actions */}
+        {/* Right CTA Actions & Theme Switcher */}
         <div className="hidden md:flex items-center gap-3">
+          {/* Light / Dark Mode Toggle */}
+          <ThemeToggle variant="icon" />
+
           <Button
             variant="ghost"
             size="sm"
             onClick={onOpenLoginModal}
-            className="text-xs lg:text-sm"
+            className="text-xs lg:text-sm text-[#3F5247] dark:text-[#9FB5A6] hover:text-[#0B1F14] dark:hover:text-white hover:bg-[#F6FBF7] dark:hover:bg-[#122218]"
           >
             {SITE_CONTENT.nav.loginText}
           </Button>
@@ -98,8 +102,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu & Theme Button */}
         <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle variant="icon" />
+
           <Button
             variant="primary"
             size="sm"
@@ -112,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="p-2 text-[#0B1F14] hover:bg-[#F6FBF7] rounded-xl border border-[#E2EDE5] transition-colors"
+            className="p-2 text-[#0B1F14] dark:text-white hover:bg-[#F6FBF7] dark:hover:bg-[#122218] rounded-xl border border-[#E2EDE5] dark:border-[#1C3827] transition-colors"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -121,21 +127,26 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/98 backdrop-blur-xl border-b border-[#E2EDE5] shadow-xl px-5 py-6 space-y-4 animate-in slide-in-from-top duration-200">
+        <div className="md:hidden bg-white/98 dark:bg-[#0E1A12]/98 backdrop-blur-xl border-b border-[#E2EDE5] dark:border-[#1C3827] shadow-xl px-5 py-6 space-y-4 animate-in slide-in-from-top duration-200">
           <div className="flex flex-col space-y-2">
             {SITE_CONTENT.nav.links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-semibold text-[#0B1F14] py-2.5 px-3 rounded-lg hover:bg-[#F6FBF7] transition-colors"
+                className="text-sm font-semibold text-[#0B1F14] dark:text-[#F0FDF4] py-2.5 px-3 rounded-lg hover:bg-[#F6FBF7] dark:hover:bg-[#122218] transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="pt-4 border-t border-[#E2EDE5] flex flex-col gap-2.5">
+          <div className="pt-4 border-t border-[#E2EDE5] dark:border-[#1C3827] flex flex-col gap-2.5">
+            <div className="flex items-center justify-between px-1 py-1">
+              <span className="text-xs font-semibold text-[#6B7F73] dark:text-[#9FB5A6]">Switch Appearance</span>
+              <ThemeToggle variant="pill" />
+            </div>
+
             <Button
               variant="outline"
               size="md"

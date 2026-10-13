@@ -34,7 +34,7 @@ export const FinalCtaBand: React.FC = () => {
   };
 
   return (
-    <section className="py-20 lg:py-24 bg-gradient-to-br from-[#16A34A] via-[#15803D] to-[#166534] text-white relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-gradient-to-br from-[#16A34A] via-[#15803D] to-[#166534] dark:from-[#0E2818] dark:via-[#091F13] dark:to-[#05140C] dark:border-y dark:border-[#1C3827] text-white relative overflow-hidden transition-colors duration-500">
       {/* Background radial highlight */}
       <div 
         aria-hidden="true" 
@@ -89,13 +89,13 @@ export const FinalCtaBand: React.FC = () => {
                         if (error) setError('');
                       }}
                       placeholder={SITE_CONTENT.ctaBanner.formPlaceholder}
-                      className="w-full pl-10 pr-4 py-3 bg-white text-[#0B1F14] placeholder-[#6B7F73] text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-white"
+                      className="w-full pl-10 pr-4 py-3 bg-white dark:bg-[#122218] text-[#0B1F14] dark:text-white placeholder-[#6B7F73] dark:placeholder-[#6E8B79] text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-white transition-colors"
                       aria-label="Work email address"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="bg-[#0B1F14] hover:bg-[#07140D] text-white text-sm font-bold px-6 py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm shrink-0"
+                    className="bg-[#0B1F14] dark:bg-[#16A34A] hover:bg-[#07140D] dark:hover:bg-[#22C55E] text-white text-sm font-bold px-6 py-3 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm shrink-0"
                   >
                     <span>{SITE_CONTENT.ctaBanner.buttonText}</span>
                     <ArrowRight className="w-4 h-4" />

@@ -14,7 +14,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectTier }) 
   const [isAnnual, setIsAnnual] = useState(true);
 
   return (
-    <section id="pricing" className="py-20 lg:py-28 bg-[#F6FBF7]/70 border-y border-[#E2EDE5]/80 relative">
+    <section id="pricing" className="py-20 lg:py-28 bg-[#F6FBF7]/70 dark:bg-[#0D1812]/80 border-y border-[#E2EDE5]/80 dark:border-[#1C3827]/80 relative transition-colors duration-500">
       <Container>
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
@@ -22,17 +22,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectTier }) 
             {SITE_CONTENT.pricing.badge}
           </Badge>
 
-          <h2 className="display-section font-extrabold text-[#0B1F14]">
+          <h2 className="display-section font-extrabold text-[#0B1F14] dark:text-[#F0FDF4] transition-colors duration-500">
             {SITE_CONTENT.pricing.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-[#3F5247] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#3F5247] dark:text-[#A1B8AA] leading-relaxed transition-colors duration-500">
             {SITE_CONTENT.pricing.subheadline}
           </p>
 
           {/* Monthly / Annual Billing Switcher */}
           <div className="pt-4 flex items-center justify-center gap-3">
-            <span className={`text-xs sm:text-sm font-semibold ${!isAnnual ? 'text-[#0B1F14]' : 'text-[#6B7F73]'}`}>
+            <span className={`text-xs sm:text-sm font-semibold transition-colors ${!isAnnual ? 'text-[#0B1F14] dark:text-[#F0FDF4]' : 'text-[#6B7F73] dark:text-[#9FB5A6]'}`}>
               Monthly billing
             </span>
             <button
@@ -49,10 +49,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectTier }) 
               />
             </button>
             <div className="flex items-center gap-2">
-              <span className={`text-xs sm:text-sm font-semibold ${isAnnual ? 'text-[#0B1F14]' : 'text-[#6B7F73]'}`}>
+              <span className={`text-xs sm:text-sm font-semibold transition-colors ${isAnnual ? 'text-[#0B1F14] dark:text-[#F0FDF4]' : 'text-[#6B7F73] dark:text-[#9FB5A6]'}`}>
                 Annual billing
               </span>
-              <span className="text-[11px] font-extrabold bg-[#DCFCE7] text-[#166534] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+              <span className="text-[11px] font-extrabold bg-[#DCFCE7] dark:bg-[#143522] text-[#166534] dark:text-[#4ADE80] px-2.5 py-0.5 rounded-full border border-[#BBF7D0] dark:border-[#22C55E]/40 transition-colors">
                 Save ~20%
               </span>
             </div>
@@ -72,8 +72,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectTier }) 
                 hoverEffect={true}
                 className={`p-8 flex flex-col justify-between relative ${
                   tier.isPopular
-                    ? 'border-2 border-[#16A34A] shadow-[0_20px_45px_-10px_rgba(22,163,74,0.18)] lg:-translate-y-2'
-                    : 'border-[#E2EDE5]'
+                    ? 'border-2 border-[#16A34A] dark:border-[#22C55E] shadow-[0_20px_45px_-10px_rgba(22,163,74,0.18)] dark:shadow-[0_20px_45px_-10px_rgba(34,197,94,0.25)] lg:-translate-y-2'
+                    : 'border-[#E2EDE5] dark:border-[#1C3827]'
                 }`}
               >
                 {/* Popular Pill */}
@@ -88,8 +88,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectTier }) 
                 <div className="space-y-6">
                   {/* Tier Title & Description */}
                   <div>
-                    <h3 className="text-2xl font-bold text-[#0B1F14]">{tier.name}</h3>
-                    <p className="text-xs sm:text-sm text-[#3F5247] mt-1.5 leading-relaxed min-h-[40px]">
+                    <h3 className="text-2xl font-bold text-[#0B1F14] dark:text-[#F0FDF4] transition-colors">{tier.name}</h3>
+                    <p className="text-xs sm:text-sm text-[#3F5247] dark:text-[#A1B8AA] mt-1.5 leading-relaxed min-h-[40px] transition-colors">
                       {tier.description}
                     </p>
                   </div>
@@ -97,42 +97,42 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectTier }) 
                   {/* Price */}
                   <div className="pt-2">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl sm:text-5xl font-extrabold text-[#0B1F14] tracking-tight">
+                      <span className="text-4xl sm:text-5xl font-extrabold text-[#0B1F14] dark:text-[#F0FDF4] tracking-tight transition-colors">
                         ${price}
                       </span>
-                      <span className="text-sm font-semibold text-[#6B7F73]">
+                      <span className="text-sm font-semibold text-[#6B7F73] dark:text-[#9FB5A6] transition-colors">
                         / month
                       </span>
                     </div>
-                    <div className="text-[11px] text-[#6B7F73] mt-1 font-mono">
-                      {isAnnual ? 'Billed annually' : 'Billed monthly'} • // PLACEHOLDER
+                    <div className="text-[11px] text-[#6B7F73] dark:text-[#8CA394] mt-1 font-mono transition-colors">
+                      {isAnnual ? 'Billed annually' : 'Billed monthly'} • // 14-Day Free Trial
                     </div>
                   </div>
 
                   {/* Included Usage Limits */}
-                  <div className="bg-[#F6FBF7] p-3.5 rounded-xl border border-[#E2EDE5] space-y-1.5 text-xs">
+                  <div className="bg-[#F6FBF7] dark:bg-[#122218] p-3.5 rounded-xl border border-[#E2EDE5] dark:border-[#1C3827] space-y-1.5 text-xs transition-colors">
                     <div className="flex justify-between font-medium">
-                      <span className="text-[#6B7F73]">Active Chats:</span>
-                      <span className="font-bold text-[#0B1F14]">{tier.limits.conversations}</span>
+                      <span className="text-[#6B7F73] dark:text-[#9FB5A6]">Active Chats:</span>
+                      <span className="font-bold text-[#0B1F14] dark:text-[#F0FDF4]">{tier.limits.conversations}</span>
                     </div>
                     <div className="flex justify-between font-medium">
-                      <span className="text-[#6B7F73]">Team Seats:</span>
-                      <span className="font-bold text-[#0B1F14]">{tier.limits.agents}</span>
+                      <span className="text-[#6B7F73] dark:text-[#9FB5A6]">Team Seats:</span>
+                      <span className="font-bold text-[#0B1F14] dark:text-[#F0FDF4]">{tier.limits.agents}</span>
                     </div>
                     <div className="flex justify-between font-medium">
-                      <span className="text-[#6B7F73]">Flows:</span>
-                      <span className="font-bold text-[#0B1F14]">{tier.limits.workflows}</span>
+                      <span className="text-[#6B7F73] dark:text-[#9FB5A6]">Flows:</span>
+                      <span className="font-bold text-[#0B1F14] dark:text-[#F0FDF4]">{tier.limits.workflows}</span>
                     </div>
                   </div>
 
                   {/* Feature Bullets */}
                   <div className="space-y-2.5 pt-2">
-                    <div className="text-xs font-bold uppercase tracking-wider text-[#6B7F73]">
+                    <div className="text-xs font-bold uppercase tracking-wider text-[#6B7F73] dark:text-[#9FB5A6]">
                       What's Included:
                     </div>
                     {tier.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#3F5247]">
-                        <Check className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#3F5247] dark:text-[#A1B8AA] transition-colors">
+                        <Check className="w-4 h-4 text-[#16A34A] dark:text-[#4ADE80] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}

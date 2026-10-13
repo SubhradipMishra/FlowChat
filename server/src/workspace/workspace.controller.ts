@@ -65,3 +65,56 @@ export const getWorkSpaces = async (req: Request, res: Response) => {
 
 }
 
+export const getWorkSpaceById = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const workspace = await WorkSpaceModel.findById(id);
+        if (!workspace) {
+            return res.status(404).json({
+                success: false,
+                message: "Workspace not found",
+                data: null
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            message: "Workspace fetched successfully",
+            data: workspace
+        })
+    }
+    catch (err: any) {
+        console.log("Error in fetching Workspace by ID..", err);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            data: null
+        })
+    }
+}
+
+export const getWorkSpaceByOwner = async (req: Request, res: Response) => {
+    try {
+        const { owner } = req.params;
+        const workspace = await WorkSpaceModel.find({ owner: owner });
+        if (!workspace) {
+            return res.status(404).json({
+                success: false,
+                message: "Workspace not found",
+                data: null
+            })
+        }
+        return res.status(200).json({
+            success: true,
+            message: "Workspace fetched successfully",
+            data: workspace
+        })
+    }
+    catch (err: any) {
+        console.log("Error in fetching Workspace by Owner..", err);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            data: null
+        })
+    }
+}
